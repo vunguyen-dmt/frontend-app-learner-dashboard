@@ -86,7 +86,7 @@ export const App = () => {
               </Alert>
             ) : (<Dashboard />)}
         </main>
-        <Footer logo={process.env.LOGO_POWERED_BY_OPEN_EDX_URL_SVG} />
+        <Footer />
         <ZendeskFab />
       </div>
     </Router>

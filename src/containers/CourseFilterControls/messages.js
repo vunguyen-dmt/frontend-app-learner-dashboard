@@ -51,5 +51,15 @@ export const messages = StrictDict({
     description: 'Filter button container text',
     defaultMessage: 'Refine',
   },
+  'Course status': {
+    id: 'Course status',
+    description: '',
+    defaultMessage: 'Course status',
+  },
+  Sort: {
+    id: 'Sort',
+    description: '',
+    defaultMessage: 'Sort',
+  },
 });
 export default messages;

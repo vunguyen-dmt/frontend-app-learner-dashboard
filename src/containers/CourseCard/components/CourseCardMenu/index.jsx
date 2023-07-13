@@ -52,7 +52,7 @@ export const CourseCardMenu = ({ cardId }) => {
           alt={formatMessage(messages.dropdownAlt)}
         />
         <Dropdown.Menu>
-          {isEnrolled && (
+          {/* {isEnrolled && (
             <Dropdown.Item
               disabled={isMasquerading}
               onClick={unenrollModal.show}
@@ -60,7 +60,7 @@ export const CourseCardMenu = ({ cardId }) => {
             >
               {formatMessage(messages.unenroll)}
             </Dropdown.Item>
-          )}
+          )} */}
           {isEmailEnabled && (
             <Dropdown.Item
               disabled={isMasquerading}

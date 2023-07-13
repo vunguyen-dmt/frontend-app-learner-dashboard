@@ -29,9 +29,9 @@ export const AuthenticatedUserDropdown = () => {
           </span>
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu-right">
-          <Dropdown.Header>SWITCH DASHBOARD</Dropdown.Header>
-          <Dropdown.Item as="a" href="/edx-dashboard" className="active">
-            Personal
+          {/* <Dropdown.Header>SWITCH DASHBOARD</Dropdown.Header> */}
+          <Dropdown.Item as="a" href="/learner-dashboard" className="active">
+            {formatMessage(messages.dashboard)}
           </Dropdown.Item>
           {!!dashboard && (
             <Dropdown.Item as="a" href={dashboard.url} key={dashboard.label}>
