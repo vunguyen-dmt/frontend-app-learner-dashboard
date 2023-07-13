@@ -12,6 +12,7 @@ import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import { useIsCollapsed, findCoursesNavClicked } from '../hooks';
 import messages from '../messages';
 import BrandLogo from '../BrandLogo';
+import LanguageSelector from '../../LanguageSelector/LanguageSelector';
 
 export const ExpandedHeader = () => {
   const { formatMessage } = useIntl();
@@ -53,6 +54,8 @@ export const ExpandedHeader = () => {
           {formatMessage(messages.discoverNew)}
         </Button>
         )}
+        <span className="flex-grow-1" />
+        <LanguageSelector />
         {/* <Button
           as="a"
           href={urls.baseAppUrl(courseSearchUrl)}
@@ -62,7 +65,6 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.discoverNew)}
         </Button> */}
-        <span className="flex-grow-1" />
         <Button
           as="a"
           href={getConfig().SUPPORT_URL}

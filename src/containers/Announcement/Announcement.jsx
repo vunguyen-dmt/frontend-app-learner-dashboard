@@ -6,6 +6,7 @@ import { useIntl } from '@edx/frontend-platform/i18n';
 import './Announcement.scss';
 import messages from './messages';
 
+// eslint-disable-next-line import/prefer-default-export
 export const Announcement = () => {
   const [announcements, setAnnouncements] = React.useState(null);
   const { formatMessage } = useIntl();
@@ -16,7 +17,7 @@ export const Announcement = () => {
         setAnnouncements(response.data.announcements);
       }
     });
-  });
+  }, []);
   return announcements ? (
     <Card className="announcement-wrapper">
       <Card.Header
