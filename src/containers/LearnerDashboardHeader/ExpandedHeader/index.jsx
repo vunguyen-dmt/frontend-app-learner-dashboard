@@ -34,15 +34,25 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.course)}
         </Button>
-        <Button
+        {/* <Button
           as="a"
           href={urls.programsUrl}
           variant="inverse-primary"
           className="p-4"
         >
           {formatMessage(messages.program)}
-        </Button>
+        </Button> */}
+        {getConfig().DISCOVER_NEW_URL
+        && (
         <Button
+          as="a"
+          href={getConfig().DISCOVER_NEW_URL}
+          variant="inverse-primary"
+        >
+          {formatMessage(messages.discoverNew)}
+        </Button>
+        )}
+        {/* <Button
           as="a"
           href={urls.baseAppUrl(courseSearchUrl)}
           variant="inverse-primary"
@@ -50,7 +60,7 @@ export const ExpandedHeader = () => {
           onClick={exploreCoursesClick}
         >
           {formatMessage(messages.discoverNew)}
-        </Button>
+        </Button> */}
         <span className="flex-grow-1" />
         <Button
           as="a"

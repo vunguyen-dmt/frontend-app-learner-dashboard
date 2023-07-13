@@ -42,6 +42,9 @@ export const CourseCardMenu = ({ cardId }) => {
 
   return (
     <>
+      {
+      (isEmailEnabled || facebook.isEnabled || twitter.isEnabled)
+      && (
       <Dropdown onToggle={handleToggleDropdown}>
         <Dropdown.Toggle
           id={`course-actions-dropdown-${cardId}`}
@@ -53,53 +56,55 @@ export const CourseCardMenu = ({ cardId }) => {
         />
         <Dropdown.Menu>
           {/* {isEnrolled && (
-            <Dropdown.Item
-              disabled={isMasquerading}
-              onClick={unenrollModal.show}
-              data-testid="unenrollModalToggle"
-            >
-              {formatMessage(messages.unenroll)}
-            </Dropdown.Item>
-          )} */}
+          <Dropdown.Item
+            disabled={isMasquerading}
+            onClick={unenrollModal.show}
+            data-testid="unenrollModalToggle"
+          >
+            {formatMessage(messages.unenroll)}
+          </Dropdown.Item>
+        )} */}
           {isEmailEnabled && (
-            <Dropdown.Item
-              disabled={isMasquerading}
-              onClick={emailSettingsModal.show}
-              data-testid="emailSettingsModalToggle"
-            >
-              {formatMessage(messages.emailSettings)}
-            </Dropdown.Item>
+          <Dropdown.Item
+            disabled={isMasquerading}
+            onClick={emailSettingsModal.show}
+            data-testid="emailSettingsModalToggle"
+          >
+            {formatMessage(messages.emailSettings)}
+          </Dropdown.Item>
           )}
           {facebook.isEnabled && (
-            <ReactShare.FacebookShareButton
-              url={facebook.shareUrl}
-              onClick={handleFacebookShare}
-              title={formatMessage(messages.shareQuote, {
-                courseName,
-                socialBrand: facebook.socialBrand,
-              })}
-              resetButtonStyle={false}
-              className="pgn__dropdown-item dropdown-item"
-            >
-              {formatMessage(messages.shareToFacebook)}
-            </ReactShare.FacebookShareButton>
+          <ReactShare.FacebookShareButton
+            url={facebook.shareUrl}
+            onClick={handleFacebookShare}
+            title={formatMessage(messages.shareQuote, {
+              courseName,
+              socialBrand: facebook.socialBrand,
+            })}
+            resetButtonStyle={false}
+            className="pgn__dropdown-item dropdown-item"
+          >
+            {formatMessage(messages.shareToFacebook)}
+          </ReactShare.FacebookShareButton>
           )}
           {twitter.isEnabled && (
-            <ReactShare.TwitterShareButton
-              url={twitter.shareUrl}
-              onClick={handleTwitterShare}
-              title={formatMessage(messages.shareQuote, {
-                courseName,
-                socialBrand: twitter.socialBrand,
-              })}
-              resetButtonStyle={false}
-              className="pgn__dropdown-item dropdown-item"
-            >
-              {formatMessage(messages.shareToTwitter)}
-            </ReactShare.TwitterShareButton>
+          <ReactShare.TwitterShareButton
+            url={twitter.shareUrl}
+            onClick={handleTwitterShare}
+            title={formatMessage(messages.shareQuote, {
+              courseName,
+              socialBrand: twitter.socialBrand,
+            })}
+            resetButtonStyle={false}
+            className="pgn__dropdown-item dropdown-item"
+          >
+            {formatMessage(messages.shareToTwitter)}
+          </ReactShare.TwitterShareButton>
           )}
         </Dropdown.Menu>
       </Dropdown>
+      )}
+
       <UnenrollConfirmModal
         show={unenrollModal.isVisible}
         closeModal={unenrollModal.hide}
