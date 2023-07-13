@@ -18,18 +18,20 @@ import {
   initialize,
   subscribe,
   mergeConfig,
+  getConfig
 } from '@edx/frontend-platform';
-
+import { Helmet } from 'react-helmet';
 import { configuration } from './config';
-
 import messages from './i18n';
-
 import App from './App';
 import NoticesWrapper from './components/NoticesWrapper';
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider store={store}>
+      <Helmet>
+        <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
+      </Helmet>
       <NoticesWrapper>
         <Switch>
           <PageRoute path="/">

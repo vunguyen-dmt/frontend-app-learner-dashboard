@@ -48,6 +48,7 @@ export const ExpandedHeader = () => {
           as="a"
           href={getConfig().DISCOVER_NEW_URL}
           variant="inverse-primary"
+          className="p-4"
         >
           {formatMessage(messages.discoverNew)}
         </Button>
