@@ -18,10 +18,13 @@ export const useCourseFilterControlsData = ({
   const [isOpen, toggleOpen, toggleClose] = useToggle(false);
   const [target, setTarget] = module.state.target(null);
 
-  //default filter values.
-  // React.useEffect(() => {
-  //   setFilters.add('inProgress');
-  // }, []);
+  // ga custom default filter values.
+  React.useEffect(() => {
+    setFilters.add('notEnrolled');
+    setFilters.add('notStarted');
+    setFilters.add('inProgress');
+    setFilters.add('upgraded');
+  }, []);
 
   const handleFilterChange = ({ target: { checked, value } }) => {
     const update = checked ? setFilters.add : setFilters.remove;
