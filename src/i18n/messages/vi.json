@@ -110,7 +110,7 @@
     "learner-dash.courseCardMenu.shareQuote": "Tôi đang tham gia {courseName} trực tuyến với {socialBrand}!",
     "learner-dash.courseCard.relatedProgramsBadge.label.plural": "{numPrograms} Chương trình liên quan",
     "learner-dash.courseCard.relatedProgramsBadge.label.singular": "{numPrograms} Chương trình liên quan",
-    "learner-dash.courseCard.bannerAlt": "Course thumbnail",
+    "learner-dash.courseCard.bannerAlt": "Ảnh bìa khóa học",
     "learner-dash.courseCard.verifiedBanner": "Đã xác thực",
     "learner-dash.courseCard.verifiedHoverDescription": "Bạn đã được ghi danh là một sinh viên đã được xác thực",
     "learner-dash.courseCard.verifiedBannerRibbonAlt": "ID Verified Ribbon/Badge",
