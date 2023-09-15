@@ -57,11 +57,11 @@ export const CertificateBanner = ({ cardId }) => {
   }
   if (!isPassing) {
     if (isAudit) {
-      return (
-        <Banner>
-          {formatMessage(messages.passingGrade, { minPassingGrade })}
-        </Banner>
-      );
+      // return (
+      //   <Banner>
+      //     {formatMessage(messages.passingGrade, { minPassingGrade })}
+      //   </Banner>
+      // );
     }
     if (isArchived) {
       return (
@@ -72,11 +72,11 @@ export const CertificateBanner = ({ cardId }) => {
         </Banner>
       );
     }
-    return (
-      <Banner variant="warning">
-        {formatMessage(messages.certMinGrade, { minPassingGrade })}
-      </Banner>
-    );
+    // return (
+    //   <Banner variant="warning">
+    //     {formatMessage(messages.certMinGrade, { minPassingGrade })}
+    //   </Banner>
+    // );
   }
   if (certificate.isEarnedButUnavailable) {
     return (
