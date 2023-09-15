@@ -23,12 +23,9 @@ export const transforms = StrictDict({
   [SortKeys.title]: ({ course }) => course.courseName.toLowerCase(),
 });
 
-export const courseFilterFn = filters => {
-  console.log(courseFilters);
-  return filters.length
-    ? course => filters.reduce((match, filter) => match || courseFilters[filter](course), false)
-    : () => true;
-};
+export const courseFilterFn = filters => (filters.length
+  ? course => filters.reduce((match, filter) => match && courseFilters[filter](course), true)
+  : () => true);
 
 export const currentList = (allCourses, {
   sortBy,
