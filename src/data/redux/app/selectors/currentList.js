@@ -11,11 +11,11 @@ export const sortFn = (transform, { reverse }) => (v1, v2) => {
 };
 
 export const courseFilters = StrictDict({
-  [FilterKeys.notEnrolled]: (course) => !course.enrollment.isEnrolled,
+  // [FilterKeys.notEnrolled]: (course) => !course.enrollment.isEnrolled,
   [FilterKeys.done]: (course) => course.courseRun !== null && course.courseRun.isArchived,
-  [FilterKeys.upgraded]: (course) => course.enrollment.isVerified,
-  [FilterKeys.inProgress]: (course) => course.enrollment.hasStarted,
-  [FilterKeys.notStarted]: (course) => !course.enrollment.hasStarted,
+  // [FilterKeys.upgraded]: (course) => course.enrollment.isVerified,
+  [FilterKeys.inProgress]: (course) => course.courseRun !== null && !course.courseRun.isArchived,
+  // [FilterKeys.notStarted]: (course) => !course.enrollment.hasStarted,
 });
 
 export const transforms = StrictDict({
@@ -24,7 +24,7 @@ export const transforms = StrictDict({
 });
 
 export const courseFilterFn = filters => (filters.length
-  ? course => filters.reduce((match, filter) => match && courseFilters[filter](course), true)
+  ? course => filters.reduce((match, filter) => match || courseFilters[filter](course), false)
   : () => true);
 
 export const currentList = (allCourses, {
