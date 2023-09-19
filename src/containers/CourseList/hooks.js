@@ -3,7 +3,7 @@ import React from 'react';
 import { useCheckboxSetValues, useWindowSize, breakpoints } from '@edx/paragon';
 import queryString from 'query-string';
 
-import { ListPageSize, SortKeys } from 'data/constants/app';
+import { ListPageSize, SortKeys, FilterKeys } from 'data/constants/app';
 import { reduxHooks } from 'hooks';
 import { StrictDict } from 'utils';
 
@@ -19,7 +19,7 @@ export const state = StrictDict({
 });
 
 export const useCourseListData = () => {
-  const [filters, setFilters] = useCheckboxSetValues([]);
+  const [filters, setFilters] = useCheckboxSetValues([FilterKeys.inProgress]);
   const [sortBy, setSortBy] = module.state.sortBy(SortKeys.enrolled);
   const pageNumber = reduxHooks.usePageNumber();
   const querySearch = queryString.parse(window.location.search, { parseNumbers: true });
