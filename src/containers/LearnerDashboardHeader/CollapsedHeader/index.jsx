@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from '@edx/frontend-platform/i18n';
-import { Menu, Close } from '@edx/paragon/icons';
+import { MenuIcon, Close } from '@edx/paragon/icons';
 import { IconButton, Icon } from '@edx/paragon';
 import { useLearnerDashboardHeaderData, useIsCollapsed } from '../hooks';
 import CollapseMenuBody from './CollapseMenuBody';
@@ -20,7 +20,7 @@ export const CollapsedHeader = () => {
           <IconButton
             invertColors
             isActive
-            src={isOpen ? Close : Menu}
+            src={isOpen ? Close : MenuIcon}
             iconAs={Icon}
             alt={
               isOpen

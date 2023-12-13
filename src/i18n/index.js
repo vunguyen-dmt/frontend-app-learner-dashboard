@@ -1,4 +1,5 @@
 import { messages as footerMessages } from '@edx/frontend-component-footer';
+import { messages as paragonMessages } from '@edx/paragon';
 
 import arMessages from './messages/ar.json';
 // no need to import en messages-- they are in the defaultMessage field
@@ -22,4 +23,5 @@ const appMessages = {
 export default [
   footerMessages,
   appMessages,
+  paragonMessages,
 ];

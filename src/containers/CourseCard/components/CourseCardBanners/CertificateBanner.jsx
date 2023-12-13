@@ -26,68 +26,65 @@ export const CertificateBanner = ({ cardId }) => {
   const { formatMessage } = useIntl();
   const formatDate = useFormatDate();
 
-  const emailLink = address => address && <MailtoLink to={address}>{address}</MailtoLink>;
+  const emailLink = address => <MailtoLink to={address}>{address}</MailtoLink>;
 
-  // if (certificate.isRestricted) {
-  //   return (
-  //     <Banner variant="danger">
-  //       {formatMessage(messages.certRestricted, { supportEmail: emailLink(supportEmail) })}
-  //       {isVerified && '  '}
-  //       {isVerified && formatMessage(
-  //         messages.certRefundContactBilling,
-  //         { billingEmail: emailLink(billingEmail) },
-  //       )}
-  //     </Banner>
-  //   );
-  // }
-  // if (certificate.isDownloadable) {
-  //   return (
-  //     <Banner variant="success" icon={CheckCircle}>
-  //       {formatMessage(messages.certReady)}
-  //       {certificate.certPreviewUrl && (
-  //         <>
-  //           {'  '}
-  //           <Hyperlink isInline destination={certificate.certPreviewUrl}>
-  //             {formatMessage(messages.viewCertificate)}
-  //           </Hyperlink>
-  //         </>
-  //       )}
-  //     </Banner>
-  //   );
-  // }
-  // if (!isPassing) {
-    // if (isAudit) {
-      // return (
-      //   <Banner>
-      //     {formatMessage(messages.passingGrade, { minPassingGrade })}
-      //   </Banner>
-      // );
-    // }
-    // if (isArchived) {
-    //   return (
-    //     <Banner variant="warning">
-    //       {formatMessage(messages.notEligibleForCert)}
-    //       {'  '}
-    //       <Hyperlink isInline destination={progressUrl}>{formatMessage(messages.viewGrades)}</Hyperlink>
-    //     </Banner>
-    //   );
-    // }
-    // return (
-    //   <Banner variant="warning">
-    //     {formatMessage(messages.certMinGrade, { minPassingGrade })}
-    //   </Banner>
-    // );
-  // }
-  // if (certificate.isEarnedButUnavailable) {
-  //   return (
-  //     <Banner>
-  //       {formatMessage(
-  //         messages.gradeAndCertReadyAfter,
-  //         { availableDate: formatDate(certificate.availableDate) },
-  //       )}
-  //     </Banner>
-  //   );
-  // }
+  if (certificate.isRestricted) {
+    return (
+      <Banner variant="danger">
+        { supportEmail ? formatMessage(messages.certRestricted, { supportEmail: emailLink(supportEmail) }) : formatMessage(messages.certRestrictedNoEmail)}
+        {isVerified && '  '}
+        {isVerified && (billingEmail ? formatMessage(messages.certRefundContactBilling, { billingEmail: emailLink(billingEmail) }) : formatMessage(messages.certRefundContactBillingNoEmail))}
+      </Banner>
+    );
+  }
+  if (certificate.isDownloadable) {
+    return (
+      <Banner variant="success" icon={CheckCircle}>
+        {formatMessage(messages.certReady)}
+        {certificate.certPreviewUrl && (
+          <>
+            {'  '}
+            <Hyperlink isInline destination={certificate.certPreviewUrl}>
+              {formatMessage(messages.viewCertificate)}
+            </Hyperlink>
+          </>
+        )}
+      </Banner>
+    );
+  }
+  if (!isPassing) {
+    if (isAudit) {
+      return (
+        <Banner>
+          {formatMessage(messages.passingGrade, { minPassingGrade })}
+        </Banner>
+      );
+    }
+    if (isArchived) {
+      return (
+        <Banner variant="warning">
+          {formatMessage(messages.notEligibleForCert)}
+          {'  '}
+          <Hyperlink isInline destination={progressUrl}>{formatMessage(messages.viewGrades)}</Hyperlink>
+        </Banner>
+      );
+    }
+    return (
+      <Banner variant="warning">
+        {formatMessage(messages.certMinGrade, { minPassingGrade })}
+      </Banner>
+    );
+  }
+  if (certificate.isEarnedButUnavailable) {
+    return (
+      <Banner>
+        {formatMessage(
+          messages.gradeAndCertReadyAfter,
+          { availableDate: formatDate(certificate.availableDate) },
+        )}
+      </Banner>
+    );
+  }
 
   return null;
 };
