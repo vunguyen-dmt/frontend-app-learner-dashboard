@@ -14,21 +14,7 @@ export const RecommendationsPanel = () => {
     isLoaded,
     isLoading,
   } = hooks.useRecommendationPanelData();
-  // return Announcement instead.
   return <Announcement />;
-  // if (isLoading) {
-  //   return (<LoadingView />);
-  // }
-  // if (isLoaded && courses.length > 0) {
-  //   return (
-  //     <LoadedView courses={courses} isControl={isControl} />
-  //   );
-  // }
-  // if (isFailed) {
-  //   return (<LookingForChallengeWidget />);
-  // }
-  // // default fallback
-  // return (<LookingForChallengeWidget />);
 };
 
 export default RecommendationsPanel;

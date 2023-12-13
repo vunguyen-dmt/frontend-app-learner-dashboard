@@ -4,15 +4,15 @@ import { getConfig } from '@edx/frontend-platform';
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { Button } from '@edx/paragon';
 
+import WidgetNavbar from 'containers/WidgetContainers/WidgetNavbar';
 import urls from 'data/services/lms/urls';
 import { reduxHooks } from 'hooks';
+import { EXPANDED_NAVBAR } from 'widgets/RecommendationsPaintedDoorBtn/constants';
 
 import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
-
 import { useIsCollapsed, findCoursesNavClicked } from '../hooks';
 import messages from '../messages';
 import BrandLogo from '../BrandLogo';
-import LanguageSelector from '../../LanguageSelector/LanguageSelector';
 
 export const ExpandedHeader = () => {
   const { formatMessage } = useIntl();
@@ -35,36 +35,8 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.course)}
         </Button>
-        {/* <Button
-          as="a"
-          href={urls.programsUrl}
-          variant="inverse-primary"
-          className="p-4"
-        >
-          {formatMessage(messages.program)}
-        </Button> */}
-        {getConfig().DISCOVER_NEW_URL
-        && (
-        <Button
-          as="a"
-          href={getConfig().DISCOVER_NEW_URL}
-          variant="inverse-primary"
-          className="p-4"
-        >
-          {formatMessage(messages.discoverNew)}
-        </Button>
-        )}
+        <WidgetNavbar placement={EXPANDED_NAVBAR} />
         <span className="flex-grow-1" />
-        <LanguageSelector />
-        {/* <Button
-          as="a"
-          href={urls.baseAppUrl(courseSearchUrl)}
-          variant="inverse-primary"
-          className="p-4"
-          onClick={exploreCoursesClick}
-        >
-          {formatMessage(messages.discoverNew)}
-        </Button> */}
         <Button
           as="a"
           href={getConfig().SUPPORT_URL}

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { getConfig } from '@edx/frontend-platform';
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { AppContext } from '@edx/frontend-platform/react';
@@ -28,16 +29,21 @@ export const AuthenticatedUserDropdown = () => {
           </span>
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu-right">
-          {/* <Dropdown.Header>SWITCH DASHBOARD</Dropdown.Header> */}
-          <Dropdown.Item as="a" href="/learner-dashboard" className="active">
-            {formatMessage(messages.dashboard)}
-          </Dropdown.Item>
-          {!!dashboard && (
-            <Dropdown.Item as="a" href={dashboard.url} key={dashboard.label}>
-              {dashboard.label} {formatMessage(messages.dashboard)}
-            </Dropdown.Item>
+          { getConfig().ENABLE_EDX_PERSONAL_DASHBOARD && (
+            <>
+              <Dropdown.Header>{formatMessage(messages.dashboardSwitch)}</Dropdown.Header>
+              <Dropdown.Item as="a" href="/edx-dashboard" className="active">
+                {formatMessage(messages.dashboardPersonal)}
+              </Dropdown.Item>
+              {!!dashboard && (
+                <Dropdown.Item as="a" href={dashboard.url} key={dashboard.label}>
+                  {dashboard.label} {formatMessage(messages.dashboard)}
+                </Dropdown.Item>
+              )}
+              <Dropdown.Divider />
+            </>
           )}
-          <Dropdown.Divider />
+
           {!dashboard && getConfig().CAREER_LINK_URL && (
             <Dropdown.Item href={`${getConfig().CAREER_LINK_URL}`}>
               {formatMessage(messages.career)}
