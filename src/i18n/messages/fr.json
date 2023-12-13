@@ -35,7 +35,7 @@
   "MasqueradeBar.StudentNameInput": "Nom d'utilisateur ou courriel",
   "MasqueradeBar.NoStudentFound": "Aucun étudiant avec ce nom d'utilisateur ou cette adresse courriel n'a pu être trouvé",
   "MasqueradeBar.UnknownError": "Une erreur d'origine inconnue s'est produite.",
-  "WidgetSidebar.lookingForChallengePrompt": "A la recherche d'un nouveau défi?",
+  "WidgetSidebar.lookingForChallengePrompt": "A la recherche d'un nouveau défi? ",
   "WidgetSidebar.findCoursesButton": "Trouver un cours {arrow}",
   "ProductRecommendations.recommendationsHeading": "You might also like",
   "ProductRecommendations.executiveEducationHeading": "Executive Education",

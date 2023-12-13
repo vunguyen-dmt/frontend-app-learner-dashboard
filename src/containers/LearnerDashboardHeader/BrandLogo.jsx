@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { useIntl } from '@edx/frontend-platform/i18n';
-
 import { reduxHooks } from 'hooks';
 
 import { getConfig } from '@edx/frontend-platform';

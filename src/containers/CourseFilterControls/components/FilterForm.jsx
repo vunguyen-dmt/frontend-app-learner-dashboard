@@ -1,26 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { FilterKeys } from 'data/constants/app';
-
 import { Form } from '@edx/paragon';
-
+import { useIntl } from '@edx/frontend-platform/i18n';
 import Checkbox from './Checkbox';
+import messages from '../messages';
 
 export const filterOrder = [
   FilterKeys.inProgress,
-  FilterKeys.notStarted,
+  // FilterKeys.notStarted,
   FilterKeys.done,
-  FilterKeys.notEnrolled,
-  FilterKeys.upgraded,
+  // FilterKeys.notEnrolled,
+  // FilterKeys.upgraded,
 ];
 
 export const FilterForm = ({
   filters,
   handleFilterChange,
-}) => (
+}) => {
+  const { formatMessage } = useIntl();
+  return (
   <Form.Group>
-    <div className="filter-form-heading mb-1">Course Status</div>
+    <div className="filter-form-heading mb-1">{formatMessage(messages['Course status'])}</div>
     <Form.CheckboxSet
       name="course-status-filters"
       onChange={handleFilterChange}
@@ -31,7 +32,8 @@ export const FilterForm = ({
       ))}
     </Form.CheckboxSet>
   </Form.Group>
-);
+)};
+
 FilterForm.propTypes = {
   filters: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleFilterChange: PropTypes.func.isRequired,

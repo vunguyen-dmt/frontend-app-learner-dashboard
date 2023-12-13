@@ -35,23 +35,6 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.course)}
         </Button>
-        <Button
-          as="a"
-          href={urls.programsUrl}
-          variant="inverse-primary"
-          className="p-4"
-        >
-          {formatMessage(messages.program)}
-        </Button>
-        <Button
-          as="a"
-          href={urls.baseAppUrl(courseSearchUrl)}
-          variant="inverse-primary"
-          className="p-4"
-          onClick={exploreCoursesClick}
-        >
-          {formatMessage(messages.discoverNew)}
-        </Button>
         <WidgetNavbar placement={EXPANDED_NAVBAR} />
         <span className="flex-grow-1" />
         <Button

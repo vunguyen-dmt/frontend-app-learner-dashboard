@@ -17,6 +17,7 @@ export const useCourseFilterControlsData = ({
 }) => {
   const [isOpen, toggleOpen, toggleClose] = useToggle(false);
   const [target, setTarget] = module.state.target(null);
+
   const handleFilterChange = ({ target: { checked, value } }) => {
     const update = checked ? setFilters.add : setFilters.remove;
     update(value);

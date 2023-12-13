@@ -29,14 +29,15 @@ export const CollapseMenuBody = ({ isOpen }) => {
         <Button as="a" href="/" variant="inverse-primary">
           {formatMessage(messages.course)}
         </Button>
-        <Button as="a" href={urls.programsUrl} variant="inverse-primary">
+        {/* <Button as="a" href={urls.programsUrl} variant="inverse-primary">
           {formatMessage(messages.program)}
-        </Button>
+        </Button> */}
+        {getConfig().DISCOVER_NEW_URL
+        && (
         <Button
           as="a"
-          href={urls.baseAppUrl(courseSearchUrl)}
+          href={getConfig().DISCOVER_NEW_URL}
           variant="inverse-primary"
-          onClick={exploreCoursesClick}
         >
           {formatMessage(messages.discoverNew)}
         </Button>

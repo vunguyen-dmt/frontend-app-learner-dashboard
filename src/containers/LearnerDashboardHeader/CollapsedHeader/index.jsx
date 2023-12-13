@@ -1,15 +1,12 @@
 import React from 'react';
-
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { MenuIcon, Close } from '@edx/paragon/icons';
 import { IconButton, Icon } from '@edx/paragon';
-
 import { useLearnerDashboardHeaderData, useIsCollapsed } from '../hooks';
-
 import CollapseMenuBody from './CollapseMenuBody';
 import BrandLogo from '../BrandLogo';
-
 import messages from '../messages';
+import LanguageSelector from '../../LanguageSelector/LanguageSelector';
 
 export const CollapsedHeader = () => {
   const { formatMessage } = useIntl();
@@ -35,6 +32,7 @@ export const CollapsedHeader = () => {
             className="p-4"
           />
           <BrandLogo />
+          <LanguageSelector size="small-language-selector" />
         </header>
         <CollapseMenuBody isOpen={isOpen} />
       </>

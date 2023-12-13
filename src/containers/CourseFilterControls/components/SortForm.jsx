@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useIntl } from '@edx/frontend-platform/i18n';
-
 import { SortKeys } from 'data/constants/app';
-
 import { Form } from '@edx/paragon';
-
 import messages from '../messages';
 
 export const SortForm = ({
@@ -17,7 +14,7 @@ export const SortForm = ({
     <>
       <div className="filter-form-heading mb-1">{formatMessage(messages.sort)}</div>
       <Form.RadioSet
-        name="sort"
+        name={formatMessage(messages.Sort)}
         onChange={handleSortChange}
         value={sortBy}
       >

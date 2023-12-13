@@ -22,4 +22,7 @@ config.plugins.push(
   }),
 );
 
+config['devServer'].host = process.env.HOST ||'0.0.0.0';
+config['devServer'].port = process.env.PORT || 8080;
+config['devServer'].https = true;
 module.exports = config;
