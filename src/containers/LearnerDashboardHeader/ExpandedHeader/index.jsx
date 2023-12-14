@@ -13,6 +13,7 @@ import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import { useIsCollapsed, findCoursesNavClicked } from '../hooks';
 import messages from '../messages';
 import BrandLogo from '../BrandLogo';
+import LanguageSelector from '../../LanguageSelector/LanguageSelector';
 
 export const ExpandedHeader = () => {
   const { formatMessage } = useIntl();
@@ -35,14 +36,14 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.course)}
         </Button>
-        <Button
+        {/* <Button
           as="a"
           href={urls.programsUrl}
           variant="inverse-primary"
           className="p-4"
         >
           {formatMessage(messages.program)}
-        </Button>
+        </Button> */}
         <Button
           as="a"
           href={urls.baseAppUrl(courseSearchUrl)}
@@ -54,6 +55,7 @@ export const ExpandedHeader = () => {
         </Button>
         <WidgetNavbar placement={EXPANDED_NAVBAR} />
         <span className="flex-grow-1" />
+        <LanguageSelector />
         <Button
           as="a"
           href={getConfig().SUPPORT_URL}
