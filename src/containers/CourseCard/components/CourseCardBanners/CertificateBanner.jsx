@@ -14,6 +14,9 @@ import messages from './messages';
 const { useFormatDate } = utilHooks;
 
 export const CertificateBanner = ({ cardId }) => {
+  //don't need any of these.
+  return null;
+
   const certificate = reduxHooks.useCardCertificateData(cardId);
   const {
     isAudit,
