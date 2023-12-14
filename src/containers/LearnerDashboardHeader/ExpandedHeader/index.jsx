@@ -13,6 +13,7 @@ import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import { useIsCollapsed, findCoursesNavClicked } from '../hooks';
 import messages from '../messages';
 import BrandLogo from '../BrandLogo';
+import LanguageSelector from '../../LanguageSelector/LanguageSelector';
 
 export const ExpandedHeader = () => {
   const { formatMessage } = useIntl();
@@ -37,6 +38,7 @@ export const ExpandedHeader = () => {
         </Button>
         <WidgetNavbar placement={EXPANDED_NAVBAR} />
         <span className="flex-grow-1" />
+        <LanguageSelector />
         <Button
           as="a"
           href={getConfig().SUPPORT_URL}
