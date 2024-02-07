@@ -36,6 +36,17 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.course)}
         </Button>
+        {getConfig().DISCOVER_NEW_URL
+        && (
+        <Button
+          as="a"
+          href={getConfig().DISCOVER_NEW_URL}
+          variant="inverse-primary"
+          className="p-4"
+        >
+          {formatMessage(messages.discoverNew)}
+        </Button>
+        )}
         <WidgetNavbar placement={EXPANDED_NAVBAR} />
         <span className="flex-grow-1" />
         <LanguageSelector />
