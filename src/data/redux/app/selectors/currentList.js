@@ -4,6 +4,13 @@ import { FilterKeys, SortKeys } from 'data/constants/app';
 import simpleSelectors from './simpleSelectors';
 import * as module from './currentList';
 
+//hide courses after they end 15 days.
+export const isInProgress = (course) => {
+  var endDate = Date.parse(course.courseRun.endDate);
+  var today = new Date();
+  return course.courseRun && endDate && endDate > today.setDate(today.getDate() - 15);
+}
+
 export const sortFn = (transform, { reverse }) => (v1, v2) => {
   const [a, b] = [v1, v2].map(transform);
   if (a === b) { return 0; }
@@ -14,7 +21,7 @@ export const courseFilters = StrictDict({
   // [FilterKeys.notEnrolled]: (course) => !course.enrollment.isEnrolled,
   [FilterKeys.done]: (course) => course.courseRun !== null && course.courseRun.isArchived,
   // [FilterKeys.upgraded]: (course) => course.enrollment.isVerified,
-  [FilterKeys.inProgress]: (course) => course.courseRun !== null && !course.courseRun.isArchived,
+  [FilterKeys.inProgress]: (course) => isInProgress(course),
   // [FilterKeys.notStarted]: (course) => !course.enrollment.hasStarted,
 });
 
