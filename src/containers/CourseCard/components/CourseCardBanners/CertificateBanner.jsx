@@ -14,14 +14,17 @@ import messages from './messages';
 const { useFormatDate } = utilHooks;
 
 export const CertificateBanner = ({ cardId }) => {
-  //don't need any of these.
-  return null;
-
   const certificate = reduxHooks.useCardCertificateData(cardId);
   const {
     isAudit,
     isVerified,
   } = reduxHooks.useCardEnrollmentData(cardId);
+
+  // hide card bottom for audit courses.
+  if (isAudit) {
+    return null;
+  }
+
   const { isPassing } = reduxHooks.useCardGradeData(cardId);
   const { isArchived } = reduxHooks.useCardCourseRunData(cardId);
   const { minPassingGrade, progressUrl } = reduxHooks.useCardCourseRunData(cardId);
