@@ -11,6 +11,7 @@ import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import { useIsCollapsed, findCoursesNavClicked } from '../hooks';
 import messages from '../messages';
 import BrandLogo from '../BrandLogo';
+import LanguageSelector from '../../LanguageSelector/LanguageSelector';
 
 export const ExpandedHeader = () => {
   const { formatMessage } = useIntl();
@@ -38,15 +39,26 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.course)}
         </Button>
+        {getConfig().DISCOVER_NEW_URL
+        && (
         <Button
+          as="a"
+          href={getConfig().DISCOVER_NEW_URL}
+          variant="inverse-primary"
+          className="p-4"
+        >
+          {formatMessage(messages.discoverNew)}
+        </Button>
+        )}
+        {/* <Button
           as="a"
           href={urls.programsUrl()}
           variant="inverse-primary"
           className="p-4"
         >
           {formatMessage(messages.program)}
-        </Button>
-        <Button
+        </Button> */}
+        {/* <Button
           as="a"
           href={urls.baseAppUrl(courseSearchUrl)}
           variant="inverse-primary"
@@ -54,8 +66,9 @@ export const ExpandedHeader = () => {
           onClick={exploreCoursesClick}
         >
           {formatMessage(messages.discoverNew)}
-        </Button>
+        </Button> */}
         <span className="flex-grow-1" />
+        <LanguageSelector />
         <Button
           as="a"
           href={getConfig().SUPPORT_URL}

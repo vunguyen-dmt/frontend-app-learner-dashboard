@@ -19,6 +19,12 @@ export const CertificateBanner = ({ cardId }) => {
     isAudit,
     isVerified,
   } = reduxHooks.useCardEnrollmentData(cardId);
+
+  // hide card bottom for audit courses.
+  if (isAudit) {
+    return null;
+  }
+  
   const { isPassing } = reduxHooks.useCardGradeData(cardId);
   const { isArchived } = reduxHooks.useCardCourseRunData(cardId);
   const { minPassingGrade, progressUrl } = reduxHooks.useCardCourseRunData(cardId);

@@ -32,17 +32,27 @@ export const CollapseMenuBody = ({ isOpen }) => {
       <Button as="a" href="/" variant="inverse-primary">
         {formatMessage(messages.course)}
       </Button>
-      <Button as="a" href={urls.programsUrl()} variant="inverse-primary">
+      {getConfig().DISCOVER_NEW_URL
+        && (
+        <Button
+          as="a"
+          href={getConfig().DISCOVER_NEW_URL}
+          variant="inverse-primary"
+        >
+          {formatMessage(messages.discoverNew)}
+        </Button>
+        )}
+      {/* <Button as="a" href={urls.programsUrl()} variant="inverse-primary">
         {formatMessage(messages.program)}
-      </Button>
-      <Button
+      </Button> */}
+      {/* <Button
         as="a"
         href={urls.baseAppUrl(courseSearchUrl)}
         variant="inverse-primary"
         onClick={exploreCoursesClick}
       >
         {formatMessage(messages.discoverNew)}
-      </Button>
+      </Button> */}
       <Button as="a" href={getConfig().SUPPORT_URL} variant="inverse-primary">
         {formatMessage(messages.help)}
       </Button>
