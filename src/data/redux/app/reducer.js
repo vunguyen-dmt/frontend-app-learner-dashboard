@@ -11,7 +11,7 @@ const initialState = {
   platformSettings: {},
   suggestedCourses: [],
   selectSessionModal: {},
-  filters: [],
+  filters: ['inProgress'],
 };
 
 export const cardId = (val) => `card-${val}`;

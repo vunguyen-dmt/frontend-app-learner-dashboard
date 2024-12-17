@@ -1,7 +1,7 @@
 import { getConfig } from '@edx/frontend-platform';
 
 import urls from 'data/services/lms/urls';
-
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import messages from './messages';
 
 const getLearnerHeaderMenu = (
@@ -17,19 +17,19 @@ const getLearnerHeaderMenu = (
       content: formatMessage(messages.course),
       isActive: true,
     },
-    ...(getConfig().ENABLE_PROGRAMS ? [{
-      type: 'item',
-      href: `${urls.programsUrl()}`,
-      content: formatMessage(messages.program),
-    }] : []),
-    {
-      type: 'item',
-      href: `${urls.baseAppUrl(courseSearchUrl)}`,
-      content: formatMessage(messages.discoverNew),
-      onClick: (e) => {
-        exploreCoursesClick(e);
-      },
-    },
+    // ...(getConfig().ENABLE_PROGRAMS ? [{
+    //   type: 'item',
+    //   href: `${urls.programsUrl()}`,
+    //   content: formatMessage(messages.program),
+    // }] : []),
+    // {
+    //   type: 'item',
+    //   href: `${urls.baseAppUrl(courseSearchUrl)}`,
+    //   content: formatMessage(messages.discoverNew),
+    //   onClick: (e) => {
+    //     exploreCoursesClick(e);
+    //   },
+    // },
   ],
   secondaryMenu: [
     ...(getConfig().SUPPORT_URL ? [{
@@ -37,6 +37,10 @@ const getLearnerHeaderMenu = (
       href: `${getConfig().SUPPORT_URL}`,
       content: formatMessage(messages.help),
     }] : []),
+    {
+      type: 'item',
+      content: <LanguageSelector />
+    }
   ],
   userMenu: [
     {
