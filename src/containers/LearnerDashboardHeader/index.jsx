@@ -26,6 +26,8 @@ export const LearnerDashboardHeader = () => {
     exploreCoursesClick,
   });
 
+  console.log(learnerHomeHeaderMenu)
+
   return (
     <>
       <ConfirmEmailBanner />

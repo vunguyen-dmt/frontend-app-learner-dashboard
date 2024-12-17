@@ -26,6 +26,7 @@ import AppWrapper from 'containers/WidgetContainers/AppWrapper';
 import LearnerDashboardHeader from 'containers/LearnerDashboardHeader';
 
 import { getConfig } from '@edx/frontend-platform';
+import Footer from '@edx/frontend-component-footer';
 import messages from './messages';
 import './App.scss';
 
@@ -91,7 +92,7 @@ export const App = () => {
               )}
           </main>
         </AppWrapper>
-        <FooterSlot />
+        <Footer />
       </div>
     </>
   );
